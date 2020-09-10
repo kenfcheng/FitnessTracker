@@ -1,8 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const connectDB = require("./DB/connection");
 
 const app = express();
+
+connectDB();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
