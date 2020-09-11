@@ -1,8 +1,8 @@
-const express = require("express");
+// const express = require("express");
 const mongoose = require("mongoose");
 const User = require("../DB/user");
 const express = require("express");
-const route = express.route();
+const route = express.Router();
 
 route.post("/", async (req, res) => {
   const {
@@ -30,3 +30,5 @@ route.post("/", async (req, res) => {
   await userModel.save();
   res.json(userModel);
 });
+
+module.exports = route;

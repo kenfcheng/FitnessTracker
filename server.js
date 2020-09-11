@@ -7,6 +7,8 @@ const app = express();
 
 connectDB();
 
+app.use("/api/userModel", require("./api/User"));
+
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080;
@@ -15,8 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(morgan("dev"));
+app.use(app.router);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+mongooe.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
 });
 
