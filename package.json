@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "gitignore": "^0.6.0",
     "mongoose": "^5.10.4",
     "morgan": "^1.10.0"
   }
