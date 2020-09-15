@@ -5,7 +5,7 @@ const connectDB = require("./DB/connection");
 
 const app = express();
 
-connectDB();
+// connectDB();
 
 app.use("/api/userModel", require("./api/User"));
 
@@ -23,10 +23,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
 });
 
-/*
 require("./Develop/routes/apiRoutes")(app);
 require("./Develop/routes/htmlRoutes")(app);
- */
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {
