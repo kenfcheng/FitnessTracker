@@ -7,7 +7,7 @@ const app = express();
 
 // connectDB();
 
-app.use("/api/userModel", require("./api/user"));
+// app.use("/api/userModel", require("./api/user"));
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -20,14 +20,16 @@ app.use(morgan("dev"));
 // app.use(app.router);
 
 mongoose.connect(
-  "mongodb+srv://dbUser:dbUser@cluster0.qw6oe.gcp.mongodb.net/FitnessTracker?retryWrites=true&w=majority",
+  "mongodb://localhost/fitnessdb",
+  // "mongodb+srv://dbUser:dbUser@cluster0.qw6oe.gcp.mongodb.net/FitnessTracker?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   }
 );
 
-require("./Develop/routes/apiRoutes")(app);
-require("./Develop/routes/htmlRoutes")(app);
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {
